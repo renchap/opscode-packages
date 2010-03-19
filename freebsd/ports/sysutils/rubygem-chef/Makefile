@@ -33,6 +33,9 @@ PLIST_FILES=	bin/chef-client \
 		bin/shef \
 		bin/knife
 
+SUB_LIST=	RUBY=${RUBY}
+USE_RC_SUBR=	chef_client
+
 # we care about not passing -A to allow HTTP redirects
 FETCH_ARGS=     -pRr
 
