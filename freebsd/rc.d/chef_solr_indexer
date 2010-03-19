@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# chef-client for rc.d usage
+# $Id$
+
+# PROVIDE: chef_solr_indexer
+# REQUIRE: DAEMON chef_solr
+# BEFORE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following line to /etc/rc.conf to enable chef-solr-indexer
+#
+#  chef_solr_indexer_enable="YES"
+
+. "/etc/rc.subr"
+
+name="chef_solr_indexer"
+rcvar=`set_rcvar`
+load_rc_config $name
+
+: ${chef_solr_indexer_enable="NO"}
+: ${chef_solr_indexer_configfile="/usr/local/etc/chef/server.rb"}
+: ${chef_solr_indexer_logfile="/var/log/chef-solr-indexer.log"}
+: ${chef_solr_indexer_loglevel="info"}
+
+command="/usr/local/bin/chef-solr-indexer"
+command_interpreter="/usr/local/bin/ruby18"
+chef_solr_indexer_flags="-c ${chef_solr_indexer_configfile} -d  -L ${chef_solr_indexer_logfile} -l ${chef_solr_indexer_loglevel}"
+
+load_rc_config $name
+run_rc_command "$1"

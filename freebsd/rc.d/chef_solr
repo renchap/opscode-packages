@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# chef-client for rc.d usage
+# $Id$
+
+# PROVIDE: chef_solr
+# REQUIRE: DAEMON couchdb rabbitmq
+# BEFORE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following line to /etc/rc.conf to enable chef-solr
+#
+#  chef_solr_enable="YES"
+
+. "/etc/rc.subr"
+
+name="chef_solr"
+rcvar=`set_rcvar`
+load_rc_config $name
+
+: ${chef_solr_enable="NO"}
+: ${chef_solr_configfile="/usr/local/etc/chef/server.rb"}
+: ${chef_solr_logfile="/var/log/chef-solr.log"}
+: ${chef_solr_loglevel="info"}
+
+command="/usr/local/bin/chef-solr"
+#command_interpreter="/usr/local/bin/ruby18"
+pidfile="/var/run/chef-solr.pid"
+
+# Subvert the check_pid_file procname check, inspired by tomcat rc.d.
+if [ -f $pidfile ]; then
+  read rc_pid junk < $pidfile
+  if [ ! -z "$rc_pid" ]; then
+    procname=`ps -o command= $rc_pid | cut -f 1 -d ' '`
+  fi
+fi
+if [ -z "$procname" ]; then
+  procname=nonexistent
+fi
+
+chef_solr_flags="-c ${chef_solr_configfile} -d  -L ${chef_solr_logfile} -l ${chef_solr_loglevel} -P ${pidfile}"
+
+
+load_rc_config $name
+run_rc_command "$1"
