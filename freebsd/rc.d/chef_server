@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# chef-server for rc.d usage
+# $Id$
+
+# PROVIDE: chef_server
+# REQUIRE: DAEMON rabbitmq couchdb chef_solr chef_solr_indexer
+# BEFORE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following line to /etc/rc.conf to enable chef-server
+#
+#  chef_server_enable="YES"
+
+
+. "/etc/rc.subr"
+
+name="chef_server"
+rcvar=`set_rcvar`
+load_rc_config $name
+
+: ${chef_server_enable="NO"}
+: ${chef_server_configfile="/usr/local/etc/chef/server.rb"}
+
+if [ -n "$chef_server_listen" ]
+	then
+		listen="-h ${chef_server_listen}"
+	else
+		listen=""
+fi
+
+pidfile="/var/run/chef-server.pid"
+command="/usr/local/bin/chef-server"
+procname="ruby18"
+chef_server_flags=" --pid ${pidfile} -n chef-server -e production  ${chef_server_listen}-d -C ${chef_server_configfile}"
+
+load_rc_config $name
+run_rc_command "$1"
