@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	mixlib-cli
-PORTVERSION=	1.1.0
+PORTVERSION=	1.2.0
 CATEGORIES=	devel
 MASTER_SITES=	http://gemcutter.org/gems/
 
