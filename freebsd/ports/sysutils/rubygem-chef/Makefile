@@ -6,11 +6,7 @@
 #
 
 PORTNAME=	chef
-<<<<<<< HEAD
 PORTVERSION=	0.8.10
-=======
-PORTVERSION=	0.8.8
->>>>>>> 807d765551c38c1f706f77595a9e51a2f9e4f92b
 CATEGORIES=	sysutils
 MASTER_SITES=	http://gemcutter.org/gems/
 
