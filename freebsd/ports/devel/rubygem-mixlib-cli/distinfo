@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 MD5 (rubygem/mixlib-cli-1.2.0.gem) = 4d89a6fdfbec451f6e9f2b08cdcf96eb
 SHA256 (rubygem/mixlib-cli-1.2.0.gem) = 685d5e12974dc0b668c38f6548fdda5d5a9d962f89ceccc5348e37e980114b2c
 SIZE (rubygem/mixlib-cli-1.2.0.gem) = 12800
+=======
+MD5 (rubygem/mixlib-cli-1.1.0.gem) = f53ddbd9c73f1c9aa3b5059366b4a14f
+SHA256 (rubygem/mixlib-cli-1.1.0.gem) = b53f8fbad1a32eaae3f124a25f1a2c47448e78235a7e5282c3e71707c3ff4efc
+SIZE (rubygem/mixlib-cli-1.1.0.gem) = 12288
+>>>>>>> 807d765551c38c1f706f77595a9e51a2f9e4f92b

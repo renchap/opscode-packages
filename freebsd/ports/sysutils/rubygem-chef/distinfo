@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 MD5 (rubygem/chef-0.8.10.gem) = 27693698c53c3f57f9d7e83e6815c414
 SHA256 (rubygem/chef-0.8.10.gem) = 807f825416f8b0a6319ad46cc4f360bc12f5cecffb925ca836b6659c3a6c9aad
 SIZE (rubygem/chef-0.8.10.gem) = 153600
+=======
+MD5 (rubygem/chef-0.8.8.gem) = 251116b96e48e5d089061371300d5724
+SHA256 (rubygem/chef-0.8.8.gem) = 4e266129ea421953517af54005a65a99e2d6720b0849d5ddb89040bfd5160435
+SIZE (rubygem/chef-0.8.8.gem) = 152064
+>>>>>>> 807d765551c38c1f706f77595a9e51a2f9e4f92b
